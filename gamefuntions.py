@@ -1,3 +1,4 @@
+#Writing a funtion which can print out a 3 by 3 board representation
 def display_board(board):
     print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
     print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
@@ -5,10 +6,8 @@ def display_board(board):
 
 def player_input():
     marker = ''
-    
     while not (marker == 'X' or marker == 'O'):
         marker = input('Player 1: Do you want to be X or O? ').upper()
-
     if marker == 'X':
         return ('X', 'O')
     else:
@@ -29,7 +28,6 @@ def win_check(board,mark):
     (board[9] == mark and board[5] == mark and board[1] == mark)) # diagonal
   
 import random
-
 def choose_first():
     if random.randint(0, 1) == 0:
         return 'Player 2'
@@ -37,7 +35,6 @@ def choose_first():
         return 'Player 1'
     
 def space_check(board, position):
-    
     return board[position] == ' '
 
 def full_board_check(board):
@@ -48,14 +45,11 @@ def full_board_check(board):
 
 def player_choice(board):
     position = 0
-    
     while position not in [1,2,3,4,5,6,7,8,9] or not space_check(board, position):
         position = int(input('Choose your next position: (1-9) '))
-        
     return position
 
 def replay():
-    
     return input('Do you want to play again? Enter Yes or No: ').lower().startswith('y')
 
 
